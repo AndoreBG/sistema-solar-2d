@@ -14,15 +14,15 @@ public class OrbitByMatrixSimulator : MonoBehaviour
     [Header("Objeto Central")]
     [SerializeField] private Transform centerObject;
 
-    [Header("Configuração da Órbita")]
-    [SerializeField] private float initialAngle = 0f;           // Posição inicial (graus)
+    [Header("Configuracao da Órbita")]
+    [SerializeField] private float initialAngle = 0f;           // Posicao inicial (graus)
     [SerializeField] private float orbitRadius = 5f;            // Raio (circular) ou semi-eixo maior (elipse)
     [SerializeField] private float semiMinorAxis = 3f;          // Semi-eixo menor (apenas para elipse)
     [SerializeField] private float orbitSpeed = 30f;            // Velocidade orbital (graus/segundo)
 
-    [Header("Rotação Própria")]
-    [SerializeField] private float rotationSpeed = 100f;        // Velocidade de rotação própria
-    [SerializeField] private bool synchronizedRotation = false; // Rotação sincronizada (como a Lua)
+    [Header("Rotacao Própria")]
+    [SerializeField] private float rotationSpeed = 100f;        // Velocidade de rotacao propria
+    [SerializeField] private bool synchronizedRotation = false; // Rotacao sincronizada (como a Lua)
 
     [Header("Escala")]
     [SerializeField] private float scale = 1f;
@@ -31,7 +31,7 @@ public class OrbitByMatrixSimulator : MonoBehaviour
     private float currentOrbitAngle;
     private float currentSelfRotation;
 
-    // Propriedades públicas (para o TrailRenderer acessar)
+    // Propriedades publicas (para o TrailRenderer acessar)
     public OrbitType CurrentOrbitType => orbitType;
     public float OrbitRadius => orbitRadius;
     public float SemiMajorAxis => orbitRadius;
@@ -66,15 +66,15 @@ public class OrbitByMatrixSimulator : MonoBehaviour
 
     void ApplyTransformation()
     {
-        // Calcula posição na órbita
+        // Calcula posicao na órbita
         Vector2 orbitPosition = CalculateOrbitPosition();
 
-        // Posição do centro (ou origem se não houver objeto central)
+        // Posicao do centro (ou origem se não houver objeto central)
         Vector2 centerPosition = centerObject != null
             ? (Vector2)centerObject.position
             : Vector2.zero;
 
-        // Monta as matrizes de transformação
+        // Monta as matrizes de transformacao
         Matrix4x4[] matrices = {
             MatrixTransformationSystem.Scale(scale, scale),
             MatrixTransformationSystem.Rotation(currentSelfRotation),
@@ -110,7 +110,7 @@ public class OrbitByMatrixSimulator : MonoBehaviour
         }
     }
 
-    // Retorna a posição atual do astro
+    // Retorna a posicao atual do astro
     public Vector2 GetCurrentPosition()
     {
         return transform.position;
