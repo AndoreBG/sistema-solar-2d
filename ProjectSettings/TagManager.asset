@@ -41,5 +41,37 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Mercurio
+    uniqueID: 3385212347
+    locked: 0
+  - name: Venus
+    uniqueID: 1329748315
+    locked: 0
+  - name: Terra
+    uniqueID: 2946957683
+    locked: 0
+  - name: Marte
+    uniqueID: 3053356241
+    locked: 0
+  - name: Jupiter
+    uniqueID: 106649769
+    locked: 0
+  - name: Saturno
+    uniqueID: 516937761
+    locked: 0
+  - name: Urano
+    uniqueID: 3368341345
+    locked: 0
+  - name: Netuno
+    uniqueID: 4225742269
+    locked: 0
   m_RenderingLayers:
   - Default
+  - Mecurio
+  - Venus
+  - Terra
+  - Marte
+  - Jupiter
+  - Saturno
+  - Urano
+  - Netuno
