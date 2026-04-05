@@ -6,11 +6,18 @@ public class TimeController : MonoBehaviour
     [Header("Referencia do Slider")]
     [SerializeField] private Slider timeSlider;
 
+    [Header("Referencia do CheckButton")]
+    [SerializeField] private Toggle checkButton;
+
+    [Header("Referencia do Script")]
+    [SerializeField] private AstronomicalPhenomenaDetector detector;
+
     [Header("Escala de Tempo")]
     [SerializeField] private float minTimeScale = 0.001f;
-    [SerializeField] private float maxTimeScale = 10f;
+    [SerializeField] private float maxTimeScale = 100f;
 
     private bool isPaused = false;
+    private bool pausedByAlignment = false;  // Nova flag
     private float currentTimeScale;
 
     void Start()
@@ -21,27 +28,74 @@ public class TimeController : MonoBehaviour
 
     void Update()
     {
-        // Pressionar espaco pausa/despausa
+        HandleManualPause();
+        HandleAlignmentPause();
+    }
+
+    void HandleManualPause()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            isPaused = !isPaused;
+            TogglePause();
+        }
+    }
 
-            if (isPaused)
+    void HandleAlignmentPause()
+    {
+        // Só verifica se o toggle está ativo
+        if (!checkButton.isOn)
+        {
+            // Se estava pausado pelo alinhamento, despausa
+            if (pausedByAlignment)
             {
-                Time.timeScale = 0f;
+                pausedByAlignment = false;
+                SetPaused(false);
             }
-            else
+            return;
+        }
+
+        // Toggle ativo: verifica alinhamento
+        if (detector.IsAligned)
+        {
+            // Pausa se ainda não pausou pelo alinhamento
+            if (!pausedByAlignment)
             {
-                Time.timeScale = currentTimeScale;
+                pausedByAlignment = true;
+                SetPaused(true);
             }
         }
+        else
+        {
+            // Despausa quando alinhamento termina
+            if (pausedByAlignment)
+            {
+                pausedByAlignment = false;
+                SetPaused(false);
+            }
+        }
+    }
+
+    void TogglePause()
+    {
+        SetPaused(!isPaused);
+
+        // Se despausou manualmente, reseta flag de alinhamento
+        if (!isPaused)
+        {
+            pausedByAlignment = false;
+        }
+    }
+
+    void SetPaused(bool paused)
+    {
+        isPaused = paused;
+        Time.timeScale = isPaused ? 0f : currentTimeScale;
     }
 
     void OnSliderChanged()
     {
         UpdateTimeScale();
 
-        // So atualiza se nao estiver pausado
         if (!isPaused)
         {
             Time.timeScale = currentTimeScale;
@@ -50,10 +104,7 @@ public class TimeController : MonoBehaviour
 
     void UpdateTimeScale()
     {
-        // Normaliza o valor do slider (1–100 → 0–1)
         float t = (timeSlider.value - 1f) / 99f;
-
-        // Interpola entre 0.001f e 10f
         currentTimeScale = Mathf.Lerp(minTimeScale, maxTimeScale, t);
     }
 }
