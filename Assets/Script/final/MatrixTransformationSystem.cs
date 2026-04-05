@@ -6,7 +6,7 @@ public static class MatrixTransformationSystem
     public static Matrix4x4 ComposeMatrices(Matrix4x4[] matrices)
     {
         if (matrices == null || matrices.Length == 0)
-            return Matrix4x4.identity;
+            return Matrix4x4.identity;  // Obriga a criacao da matriz 4x4
 
         Matrix4x4 composed = matrices[0];
 
