@@ -1,16 +1,16 @@
-# 🌞 Sistema Solar 2D
+# 🌞 Sistema Solar 2D ![Static Badge](https://img.shields.io/badge/status-%20finalizado-green)
 
 Jogo/simulação 2D de um sistema solar desenvolvido na engine **Unity**.
 O projeto foi criado como meio de obtenção de nota para a matéria **Computação Gráfica** no curso de **Jogos Digitais** da **FATEC Americana**.
 
 ## 📖 Sobre
 
-Esta é uma simulação interativa do sistema solar em 2D, com astros (Sol, Terra e Lua) que orbitam em torno de um eixo central, incluindo sistemas de **rotação**, **órbita** e **sombras/iluminação**. O projeto explora conceitos de Computação Gráfica como transformações, iluminação 2D e renderização.
+Esta é uma simulação interativa do sistema solar em 2D, com astros (Sol, Terra e Lua, Marte etc) que orbitam em torno de um eixo central, incluindo sistemas de **rotação**, **órbita** e **sombras/iluminação**. O projeto explora conceitos de Computação Gráfica como transformações, iluminação 2D e renderização.
 
 ## ✨ Funcionalidades
 
 - ☀️ Sistema de rotação em torno de um eixo central (o Sol)
-- 🌍 Astros orbitando (Sol, Terra e Lua)
+- 🌍 Todos os planetas do Sistema Solar orbitando
 - 🌑 Sistema de sombras e iluminação 2D (URP)
 - 🎮 Cena de *playground* para testes e interação
 
