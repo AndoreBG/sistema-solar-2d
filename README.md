@@ -1,4 +1,8 @@
-# 🌞 Sistema Solar 2D ![Static Badge](https://img.shields.io/badge/status-%20finalizado-green)
+# 🌞 Sistema Solar 2D 
+
+![Unity](https://img.shields.io/badge/Unity-2D-black?style=for-the-badge&logo=unity)
+![Status](https://img.shields.io/badge/Status-Finalizado-green?style=for-the-badge)
+![Gênero](https://img.shields.io/badge/Gêneros-Simulation%20|%20Educational%20|%20Serious%20Game-red?style=for-the-badge)
 
 Jogo/simulação 2D de um sistema solar desenvolvido na engine **Unity**.
 O projeto foi criado como meio de obtenção de nota para a matéria **Computação Gráfica** no curso de **Jogos Digitais** da **FATEC Americana**.
